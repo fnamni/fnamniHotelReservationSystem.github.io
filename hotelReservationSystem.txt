@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+
+/**
+*
+* @author yasmi
+*/
+public class Hotelreservation8 {
+
+
+public static void main(String[] args) {
+
+
+
+
+
+Scanner scanner = new Scanner(System.in);
+String[] roomTypes = {"Standard", "Deluxe", "Suite"}; int[] roomPrices = {100, 150, 200};
+
+System.out.println("Welcome to our hotel reservation system!"); System.out.print("Enter your name: ");
+String name = scanner.nextLine(); System.out.print("Enter your email: "); String email = scanner.nextLine();
+System.out.print("Enter your phone number: "); String phoneNumber = scanner.nextLine();
+System.out.println("		"); System.out.println("	We offer the following room types: ");
+for (int i = 0; i < roomTypes.length; i++) {
+System.out.println((i+1) + ". " + roomTypes[i] + " - RM" + roomPrices[i] + " per night");
+}
+System.out.println("	"); System.out.print("Please enter the number of the room type you would like to book: ");
+int roomType = scanner.nextInt(); roomType--;
+ 
+if(roomType < 0 || roomType >= roomTypes.length) { System.out.println("Invalid room type. Please enter a valid room type."); return;
+}
+
+
+System.out.print("Please enter the number of nights you would like to stay: "); int numNights = scanner.nextInt();
+
+int totalPrice = numNights * roomPrices[roomType]; System.out.println("Your total price for the stay is: RM" + totalPrice);
+
+System.out.print("Would you like to proceed with the booking? (Y/N) "); String confirmBooking = scanner.next();
+
+if (confirmBooking.equalsIgnoreCase("Y")) {
+
+
+System.out.println("	"); System.out.println("Reservation details:");
+System.out.println("Name		:" + name); System.out.println("Email	:" + email); System.out.println("Phone number		:" + phoneNumber); System.out.println("Room types				:" + roomType); System.out.println("Number of nights :" + numNights); System.out.println("Total price			:" + totalPrice);
+System.out.println("Thank you for booking with us! Your reservation has been confirmed.");
+} else {
+System.out.println("Thank you for considering our hotel. Have a great day!");
+}
+}
+}
